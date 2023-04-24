@@ -32,6 +32,15 @@ ProgressView(value: 5, total: 15)
 
 - `.padding()`
   - View를 가장자리에서 약간 띄어줌
+  - Parameters
+    - `_ edges: Edge.Set`
+      - 띄울 가장자리
+      - `.leading` : 앞
+      - `.trailing` : 뒤
+      - `.top` : 위
+      - `.bottom` : 아래
+    - `_ length: CGFloat?`
+      - 크기
 
 ### Example
 
@@ -147,4 +156,24 @@ Button(action: {}) {
 
 ```swift
 Image(systemName: "forward.fill")
+```
+
+## List
+
+- View들을 list로 보여줌
+- 단, 유일한 id가 있어야 함
+
+### Parameters
+
+- `_ data: Data`
+  - List로 보여줄 view 배열
+- `id: KeyPath<Data.Element, ID>`
+  - id로 쓸 property
+
+### Example
+
+```swift
+List(scrums, id: \.title) { scrum in
+  CardView(scrum: scrum)
+}
 ```
